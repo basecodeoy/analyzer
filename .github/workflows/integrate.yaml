@@ -1,0 +1,58 @@
+name: 'Integrate'
+
+on:
+    push:
+        branches: [main]
+    pull_request:
+        branches: [main]
+        types: [opened, synchronize, reopened, ready_for_review]
+
+concurrency:
+    group: pr-${{ github.event.pull_request.number }}
+    cancel-in-progress: true
+
+jobs:
+    tests:
+        if: ${{ github.event.pull_request.draft != true }}
+        runs-on: ubuntu-latest
+        steps:
+            - name: Clone
+              uses: actions/checkout@v4
+              with:
+                  ref: ${{ github.head_ref }}
+                  token: ${{ secrets.PAT }}
+
+            - name: Prepare
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: '8.3'
+                  extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick, fileinfo
+                  coverage: none
+              env:
+                  COMPOSER_AUTH_JSON: '{"http-basic": {"repo.packagist.com": {"username": "faustbrian", "password": "${{ secrets.PACKAGIST_TOKEN }}"}}, "github-oauth": {"github.com": "${{ secrets.GITHUB_TOKEN }}"}}'
+
+            - name: Install
+              uses: ramsey/composer-install@v3
+
+            - name: Validate
+              run: composer validate --ansi --strict
+
+            - name: Audit
+              run: composer audit --ansi
+
+            - name: Test
+              run: ./vendor/bin/pest --parallel
+
+            # - name: Analyse
+            #   run: ./vendor/bin/phpstan analyse src --error-format=github
+
+            - name: Refactor
+              run: ./vendor/bin/rector
+
+            - name: Fix
+              run: ./vendor/bin/php-cs-fixer fix
+
+            - name: Commit
+              uses: stefanzweifel/git-auto-commit-action@v5
+              with:
+                  commit_message: 'Resolve Coding Standard Violations'
