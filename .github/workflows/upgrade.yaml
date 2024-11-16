@@ -1,0 +1,50 @@
+name: 'Upgrade'
+
+on:
+    schedule:
+        - cron: '0 0 * * 1' # Every Monday at 00:00
+
+jobs:
+    tests:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Clone
+              uses: actions/checkout@v4
+              with:
+                  ref: main
+
+            - name: Prepare
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: '8.3'
+                  extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick, fileinfo
+                  coverage: none
+              env:
+                  COMPOSER_AUTH_JSON: '{"http-basic": {"repo.packagist.com": {"username": "faustbrian", "password": "${{ secrets.PACKAGIST_TOKEN }}"}}, "github-oauth": {"github.com": "${{ secrets.GITHUB_TOKEN }}"}}'
+
+            - name: Install
+              uses: ramsey/composer-install@v3
+
+            - name: Validate
+              run: composer validate --ansi --strict
+
+            - name: Audit
+              run: composer audit --ansi
+
+            - name: Upgrade
+              run: |
+                  composer update
+                  composer bump --dev-only
+                  composer bump --no-dev-only
+                  composer update
+
+            - name: Create Pull Request
+              id: create_pr
+              uses: peter-evans/create-pull-request@v6
+              with:
+                  token: ${{ secrets.PAT }}
+                  commit-message: 'Enhancement: Upgrade dependencies'
+                  branch: weekly-upgrade
+                  title: 'Upgrade Dependencies'
+                  body: 'This PR upgrades dependencies to the latest versions.'
+                  base: main

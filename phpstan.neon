@@ -1,0 +1,11 @@
+parameters:
+    level: 9
+    paths:
+        - src
+    ignoreErrors:
+        - '#Cannot cast mixed#'
+        - '#Short ternary operator#'
+        - '#Construct empty#'
+        # Mostly errors relating to generics
+        - '#(.*) type#'
+    tmpDir: .build/phpstan
