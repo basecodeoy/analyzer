@@ -28,7 +28,7 @@ final class ImportVisitor extends NodeVisitorAbstract
     /**
      * Reset the recorded imports.
      *
-     * @param array<\PhpParser\Node> $nodes
+     * @param array<Node> $nodes
      */
     #[\Override()]
     public function beforeTraverse(array $nodes): void

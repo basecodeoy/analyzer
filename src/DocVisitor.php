@@ -32,7 +32,7 @@ final class DocVisitor extends NodeVisitorAbstract
     /**
      * The recorded phpdoc.
      *
-     * @var null|array<\phpDocumentor\Reflection\DocBlock>
+     * @var null|array<DocBlock>
      */
     private ?array $doc = null;
 
@@ -73,7 +73,7 @@ final class DocVisitor extends NodeVisitorAbstract
     /**
      * Reset the recorded imports.
      *
-     * @param array<\PhpParser\Node> $nodes
+     * @param array<Node> $nodes
      */
     #[\Override()]
     public function beforeTraverse(array $nodes): void
@@ -102,7 +102,7 @@ final class DocVisitor extends NodeVisitorAbstract
      *
      * Returns null if not traversed yet.
      *
-     * @return null|array<\phpDocumentor\Reflection\DocBlock>
+     * @return null|array<DocBlock>
      */
     public function getDoc(): ?array
     {

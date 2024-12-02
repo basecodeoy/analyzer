@@ -50,7 +50,7 @@ final class DocProcessor
      * Process a tag into types.
      *
      * @param  BaseTag|\phpDocumentor\Reflection\DocBlock\Tags\InvalidTag $tag
-     * @return array<\phpDocumentor\Reflection\Type>
+     * @return array<Type>
      */
     private static function processTag(object $tag): array
     {

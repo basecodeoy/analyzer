@@ -30,7 +30,7 @@ final class NameVisitor extends NodeVisitorAbstract
     /**
      * Reset the recorded names.
      *
-     * @param array<\PhpParser\Node> $nodes
+     * @param array<Node> $nodes
      */
     #[\Override()]
     public function beforeTraverse(array $nodes): void
