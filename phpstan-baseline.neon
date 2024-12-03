@@ -1,0 +1,186 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Cannot call method in\\(\\) on iterable\\<SplFileInfo\\>\\.$#"
+			count: 1
+			path: .php-cs-fixer.php
+
+		-
+			message: "#^Method BaseCodeOy\\\\Analyzer\\\\ClassInspector\\:\\:refector\\(\\) return type with generic class ReflectionClass does not specify its types\\: T$#"
+			count: 1
+			path: src/ClassInspector.php
+
+		-
+			message: "#^Parameter \\#1 \\$objectOrClass of class ReflectionClass constructor expects class\\-string\\<T of object\\>\\|T of object, string given\\.$#"
+			count: 1
+			path: src/ClassInspector.php
+
+		-
+			message: "#^Parameter \\#1 \\$path of method BaseCodeOy\\\\Analyzer\\\\ReferenceAnalyzer\\:\\:analyze\\(\\) expects string, string\\|false given\\.$#"
+			count: 1
+			path: src/ClassInspector.php
+
+		-
+			message: "#^Call to function is_callable\\(\\) with array\\{phpDocumentor\\\\Reflection\\\\DocBlock\\\\Tags\\\\BaseTag, 'getArguments'\\} will always evaluate to true\\.$#"
+			count: 1
+			path: src/DocProcessor.php
+
+		-
+			message: "#^Call to function is_callable\\(\\) with array\\{phpDocumentor\\\\Reflection\\\\DocBlock\\\\Tags\\\\BaseTag, 'getType'\\} will always evaluate to true\\.$#"
+			count: 1
+			path: src/DocProcessor.php
+
+		-
+			message: "#^Method BaseCodeOy\\\\Analyzer\\\\DocProcessor\\:\\:flatmap\\(\\) has parameter \\$array with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/DocProcessor.php
+
+		-
+			message: "#^Method BaseCodeOy\\\\Analyzer\\\\DocProcessor\\:\\:flatmap\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/DocProcessor.php
+
+		-
+			message: "#^Parameter \\#1 \\$comments of method BaseCodeOy\\\\Analyzer\\\\DocVisitor\\:\\:recordDoc\\(\\) expects array\\<PhpParser\\\\Comment\\>, mixed given\\.$#"
+			count: 1
+			path: src/DocVisitor.php
+
+		-
+			message: "#^Parameter \\#2 of closure expects phpDocumentor\\\\Reflection\\\\Types\\\\Context, phpDocumentor\\\\Reflection\\\\Types\\\\Context\\|null given\\.$#"
+			count: 1
+			path: src/DocVisitor.php
+
+		-
+			message: "#^Return type \\(void\\) of method BaseCodeOy\\\\Analyzer\\\\DocVisitor\\:\\:beforeTraverse\\(\\) should be compatible with return type \\(array\\<PhpParser\\\\Node\\>\\|null\\) of method PhpParser\\\\NodeVisitor\\:\\:beforeTraverse\\(\\)$#"
+			count: 1
+			path: src/DocVisitor.php
+
+		-
+			message: "#^Return type \\(void\\) of method BaseCodeOy\\\\Analyzer\\\\DocVisitor\\:\\:beforeTraverse\\(\\) should be compatible with return type \\(array\\<PhpParser\\\\Node\\>\\|null\\) of method PhpParser\\\\NodeVisitorAbstract\\:\\:beforeTraverse\\(\\)$#"
+			count: 1
+			path: src/DocVisitor.php
+
+		-
+			message: "#^Return type \\(void\\) of method BaseCodeOy\\\\Analyzer\\\\ImportVisitor\\:\\:beforeTraverse\\(\\) should be compatible with return type \\(array\\<PhpParser\\\\Node\\>\\|null\\) of method PhpParser\\\\NodeVisitor\\:\\:beforeTraverse\\(\\)$#"
+			count: 1
+			path: src/ImportVisitor.php
+
+		-
+			message: "#^Return type \\(void\\) of method BaseCodeOy\\\\Analyzer\\\\ImportVisitor\\:\\:beforeTraverse\\(\\) should be compatible with return type \\(array\\<PhpParser\\\\Node\\>\\|null\\) of method PhpParser\\\\NodeVisitorAbstract\\:\\:beforeTraverse\\(\\)$#"
+			count: 1
+			path: src/ImportVisitor.php
+
+		-
+			message: "#^Access to an undefined property PhpParser\\\\Node\\\\Expr\\|PhpParser\\\\Node\\\\Name\\:\\:\\$name\\.$#"
+			count: 1
+			path: src/NameVisitor.php
+
+		-
+			message: "#^Return type \\(void\\) of method BaseCodeOy\\\\Analyzer\\\\NameVisitor\\:\\:beforeTraverse\\(\\) should be compatible with return type \\(array\\<PhpParser\\\\Node\\>\\|null\\) of method PhpParser\\\\NodeVisitor\\:\\:beforeTraverse\\(\\)$#"
+			count: 1
+			path: src/NameVisitor.php
+
+		-
+			message: "#^Return type \\(void\\) of method BaseCodeOy\\\\Analyzer\\\\NameVisitor\\:\\:beforeTraverse\\(\\) should be compatible with return type \\(array\\<PhpParser\\\\Node\\>\\|null\\) of method PhpParser\\\\NodeVisitorAbstract\\:\\:beforeTraverse\\(\\)$#"
+			count: 1
+			path: src/NameVisitor.php
+
+		-
+			message: "#^Parameter \\#1 \\$docs of static method BaseCodeOy\\\\Analyzer\\\\DocProcessor\\:\\:process\\(\\) expects array\\<phpDocumentor\\\\Reflection\\\\DocBlock\\>, array\\<phpDocumentor\\\\Reflection\\\\DocBlock\\>\\|null given\\.$#"
+			count: 1
+			path: src/ReferenceAnalyzer.php
+
+		-
+			message: "#^Parameter \\#1 \\$nodes of method PhpParser\\\\NodeTraverser\\:\\:traverse\\(\\) expects array\\<PhpParser\\\\Node\\>, array\\<PhpParser\\\\Node\\\\Stmt\\>\\|null given\\.$#"
+			count: 1
+			path: src/ReferenceAnalyzer.php
+
+		-
+			message: "#^Parameter \\#1 \\.\\.\\.\\$arrays of function array_merge expects array, array\\<string\\>\\|null given\\.$#"
+			count: 1
+			path: src/ReferenceAnalyzer.php
+
+		-
+			message: "#^Parameter \\#2 \\.\\.\\.\\$arrays of function array_merge expects array, array\\<string\\>\\|null given\\.$#"
+			count: 1
+			path: src/ReferenceAnalyzer.php
+
+		-
+			message: "#^Unable to resolve the template type T in call to function array_values$#"
+			count: 1
+			path: src/ReferenceAnalyzer.php
+
+		-
+			message: "#^Access to an undefined property Illuminate\\\\Foundation\\\\Application\\:\\:\\$config\\.$#"
+			count: 6
+			path: tests/TestCase.php
+
+		-
+			message: "#^Class Spatie\\\\LaravelData\\\\LaravelDataServiceProvider not found\\.$#"
+			count: 1
+			path: tests/TestCase.php
+
+		-
+			message: "#^Method Tests\\\\TestCase\\:\\:getPackageProviders\\(\\) should return array\\<int, class\\-string\\<Illuminate\\\\Support\\\\ServiceProvider\\>\\> but returns array\\<int, string\\>\\.$#"
+			count: 1
+			path: tests/TestCase.php
+
+		-
+			message: "#^Parameter \\#1 \\$app \\(Illuminate\\\\Application\\) of method Tests\\\\TestCase\\:\\:getPackageProviders\\(\\) should be contravariant with parameter \\$app \\(Illuminate\\\\Foundation\\\\Application\\) of method Orchestra\\\\Testbench\\\\TestCase\\:\\:getPackageProviders\\(\\)$#"
+			count: 1
+			path: tests/TestCase.php
+
+		-
+			message: "#^Parameter \\#1 \\$path of method Illuminate\\\\Foundation\\\\Application\\:\\:useStoragePath\\(\\) expects string, string\\|false given\\.$#"
+			count: 1
+			path: tests/TestCase.php
+
+		-
+			message: "#^Parameter \\$app of method Tests\\\\TestCase\\:\\:getPackageProviders\\(\\) has invalid type Illuminate\\\\Application\\.$#"
+			count: 1
+			path: tests/TestCase.php
+
+		-
+			message: "#^Call to function method_exists\\(\\) with \\$this\\(Tests\\\\Unit\\\\AnalysisTest\\) and 'getIgnored' will always evaluate to true\\.$#"
+			count: 1
+			path: tests/Unit/AnalysisTest.php
+
+		-
+			message: "#^Method Tests\\\\Unit\\\\AnalysisTest\\:\\:getPaths\\(\\) should return array\\<string\\> but returns array\\<int, string\\|false\\>\\.$#"
+			count: 1
+			path: tests/Unit/AnalysisTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'BaseCodeOy\\\\\\\\Analyzer\\\\\\\\ClassInspector' and BaseCodeOy\\\\Analyzer\\\\ClassInspector will always evaluate to true\\.$#"
+			count: 4
+			path: tests/Unit/ClassInspectorTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertFalse\\(\\)\\.$#"
+			count: 10
+			path: tests/Unit/ClassInspectorTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\)\\.$#"
+			count: 4
+			path: tests/Unit/ClassInspectorTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\)\\.$#"
+			count: 4
+			path: tests/Unit/ClassInspectorTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\)\\.$#"
+			count: 6
+			path: tests/Unit/ClassInspectorTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\)\\.$#"
+			count: 5
+			path: tests/Unit/ReferenceAnalyzerTest.php
+
+		-
+			message: "#^Parameter \\$baz of function Foo\\\\foo\\(\\) has invalid type Foo\\\\Baz\\.$#"
+			count: 1
+			path: tests/Unit/stubs/eg.php

@@ -1,0 +1,61 @@
+{
+    "name": "basecodeoy/analyzer",
+    "description": "A checker to ensure referenced classes really exist.",
+    "license": "MIT",
+    "type": "library",
+    "keywords": [
+        "BaseCode Oy",
+        "laravel",
+        "intl"
+    ],
+    "authors": [
+        {
+            "name": "Brian Faust",
+            "email": "hello@basecode.sh",
+            "role": "Developer"
+        }
+    ],
+    "homepage": "https://github.com/basecodeoy/analyzer",
+    "support": {
+        "issues": "https://github.com/basecodeoy/analyzer/issues",
+        "source": "https://github.com/basecodeoy/analyzer",
+        "security": "https://github.com/basecodeoy/analyzer/blob/main/.github/SECURITY.md"
+    },
+    "require": {
+        "php": "^8.3",
+        "ext-ctype": "*",
+        "ext-mbstring": "*",
+        "ext-tokenizer": "*",
+        "nikic/php-parser": "^5.3.1",
+        "phpdocumentor/reflection-common": "^2.2",
+        "phpdocumentor/reflection-docblock": "^5.6.0",
+        "phpdocumentor/type-resolver": "^1.10.0"
+    },
+    "require-dev": {
+        "basecodeoy/standards": "^1.1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "BaseCodeOy\\Analyzer\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true,
+            "infection/extension-installer": true,
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": true,
+            "phpstan/extension-installer": true
+        },
+        "audit": {
+            "abandoned": "report"
+        },
+        "preferred-install": "dist",
+        "sort-packages": true
+    }
+}
